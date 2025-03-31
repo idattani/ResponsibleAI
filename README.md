@@ -53,4 +53,10 @@ Vision Examples:
 - [Try the tool: model debugging of a fridge object detection model](https://github.com/idattani/ResponsibleAI/blob/49a59bd3711c7dac58dc43eea2a7b67d0dfa7d5a/Examples/Vision/responsibleaidashboard-fridge-object-detection-model-debugging.ipynb)
 
 
+## Supported Models
 
+This Responsible AI Toolbox API supports models that are trained on datasets in Python `numpy.ndarray`, `pandas.DataFrame`, `iml.datatypes.DenseData`, or `scipy.sparse.csr_matrix` format.
+
+The explanation functions of [Interpret-Community](https://github.com/interpretml/interpret-community) accept both models and pipelines as input as long as the model or pipeline implements a `predict` or `predict_proba` function that conforms to the Scikit convention. If not compatible, you can wrap your model's prediction function into a wrapper function that transforms the output into the format that is supported (predict or predict_proba of Scikit), and pass that wrapper function to your selected interpretability techniques.
+
+If a pipeline script is provided, the explanation function assumes that the running pipeline script returns a prediction. The repository also supports models trained via **PyTorch**, **TensorFlow**, and **Keras** deep learning frameworks.
